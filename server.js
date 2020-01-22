@@ -18,16 +18,19 @@ app.use(express.static('public'));
 
 //Mongoose connection
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DATABASE_URL, {
+// mongoose.connect(process.env.DATABASE_URL, {
+//     useNewUrlParser: true
+// });
+// const db = mongoose.connection
+// db.on('error', (error) => {
+//     console.error(error);
+// });
+// db.once('open', () => {
+//     console.log("Connected to mongoose");
+// })
+mongoose.connect('mongodb+srv://MyMongoDBUser:MyMongoDBUser1995@gettingstarted-v1ey5.mongodb.net/test', {
     useNewUrlParser: true
 });
-const db = mongoose.connection
-db.on('error', (error) => {
-    console.error(error);
-});
-db.once('open', () => {
-    console.log("Connected to mongoose");
-})
 
 app.use('/', indexRouter);
 
