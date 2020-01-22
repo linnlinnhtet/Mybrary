@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 //Import index route from router folder
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/author');
+const bookRouter = require('./routes/books');
 
 //Ejs Setup
 app.set('view engine', 'ejs');
@@ -37,5 +38,7 @@ mongoose.connect('mongodb+srv://MyMongoDBUser:MyMongoDBUser1995@gettingstarted-v
 
 app.use('/', indexRouter);
 app.use('/authors', authorRouter);
+app.use('/books', bookRouter);
+
 
 app.listen(process.env.PORT || 3000);
